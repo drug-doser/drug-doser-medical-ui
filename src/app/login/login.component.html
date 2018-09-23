@@ -1,0 +1,56 @@
+<div class="d-flex h-100 bg-light">
+  <div class="m-auto">
+
+    <div *ngIf="firstTimeRegistrationUser" class="card text-white bg-teal mb-3" style="max-width: 22rem;">
+      <div class="card-body">
+        <h5 class="card-title">Registration Successfull !</h5>
+        <p>
+          Hi {{firstTimeRegistrationUser.firstName}}&nbsp;{{firstTimeRegistrationUser.lastName}}.
+          <br> We have sent your username & password
+          on you email address {{firstTimeRegistrationUser.email}}
+        </p>
+        <div class="h6">Please Login below...</div>
+      </div>
+    </div>
+
+    <div class="well text-center h3">
+      <i class="fa fa fa-ambulance mr-1 icon-color"></i>
+      <label class="card-title text-secondary">DRUG DOSER</label>
+    </div>
+    <div class="card p-4" style="max-width: 22rem;">
+      <form [formGroup]="login" (ngSubmit)="onSignIn()">
+          <div class="form-group">
+              <label class="inputlabel" for="userName">User Name</label>
+              <input type="text" class="form-control  form-control-sm"
+               [ngClass]="{ 'is-invalid': submitted && isValid.userName.errors }"
+               formControlName="userName">
+              <div *ngIf="submitted && isValid.userName.errors" class="invalid-feedback">
+                <div *ngIf="isValid.userName.errors.required">User Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="inputlabel" for="password">Password</label>
+              <input type="text" class="form-control  form-control-sm"
+               [ngClass]="{ 'is-invalid': submitted && isValid.password.errors }"
+               formControlName="password">
+              <div *ngIf="submitted && isValid.password.errors" class="invalid-feedback">
+                  <div *ngIf="isValid.password.errors.required">Password is required</div>
+                </div>
+            </div>
+        <div class="custom-control custom-checkbox mb-3">
+          <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+          <label class="custom-control-label" for="customCheck">Remember Me</label>
+        </div>
+        <button type="submit" class="btn btn-danger btn-block">Sign In</button>
+      </form>
+      <div class="text-center p-1">
+        <a href="registration">Create an Account</a>
+      </div>
+
+      <div class="well text-center">
+        <em>Note - </em> Incase of any query please
+        <a href="www.google.com">visit us</a>
+      </div>
+    </div>
+  </div>
+</div>

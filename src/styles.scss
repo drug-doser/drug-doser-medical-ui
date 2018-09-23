@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+$text-teal : #108e79!important;
+
+
+html, body { height: 100%;font-family: Montserrat, sans-serif;}
+// label { 
+//     margin-bottom: 0%;
+//     font-weight: 550;
+//     color: $text-teal;
+//   }
+
+.inputlabel {
+  margin-bottom: 0%;
+  font-weight:550;
+  color: $text-teal;
+}
+.icon-color {
+    color: $text-teal;
+}
+
+.bg-teal {
+  background-color: $text-teal;
+}
+
+input,
+select.form-control {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+input:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input,.form-control {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+input:focus,.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+

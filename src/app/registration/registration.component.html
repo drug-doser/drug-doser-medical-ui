@@ -1,0 +1,104 @@
+<div class="container-fluid pt-2 pb-2 bg-light">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-xs-12 col-lg-8 d-none d-xl-block">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title h3">
+            <i class="fa fa-text-height mr-3 icon-color"></i>
+            <label class="card-title text-secondary">Terms & Conditions</label>
+          </div>
+          <app-terms-conditions></app-terms-conditions>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 align-self-center">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title h3">
+            <i class="fa fa fa-medkit mr-3 icon-color"></i>
+            <label class="card-title text-secondary">Registration</label>
+          </div>
+          <form [formGroup]="registration" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div class="form-group">
+              <label class="inputlabel" for="firstName">First Name</label>
+              <input type="text" class="form-control form-control-sm" [ngClass]="{ 'is-invalid': submitted && isValid.firstName.errors }"
+                formControlName="firstName">
+              <div *ngIf="submitted && isValid.firstName.errors" class="invalid-feedback">
+                <div *ngIf="isValid.firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="inputlabel" for="lastName">Last Name</label>
+              <input type="text" class="form-control form-control-sm" [ngClass]="{ 'is-invalid': submitted && isValid.lastName.errors }"
+                formControlName="lastName">
+              <div *ngIf="submitted && isValid.lastName.errors" class="invalid-feedback">
+                <div *ngIf="isValid.lastName.errors.required">Last Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="inputlabel" for="email">Email</label>
+              <input type="text" class="form-control form-control-sm" [ngClass]="{ 'is-invalid': submitted && isValid.email.errors }" formControlName="email">
+              <div *ngIf="submitted && isValid.email.errors" class="invalid-feedback">
+                <div *ngIf="isValid.email.errors.required">Email is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="inputlabel" for="mobile">Mobile</label>
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ">+91</span>
+                </div>
+                <input type="tel" class="form-control" [ngClass]="{ 'is-invalid': submitted && isValid.mobile.errors }" formControlName="mobile">
+                <div class="input-group-append">
+                  <button class="btn btn-success" type="submit">Send OTP</button>
+                </div>
+                <div *ngIf="submitted && isValid.mobile.errors" class="invalid-feedback">
+                  <div *ngIf="isValid.mobile.errors.required">Mobile Number is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="inputlabel" for="otp">OTP</label>
+              <input type="text" class="form-control form-control-sm" [ngClass]="{ 'is-invalid': submitted && isValid.otp.errors }" formControlName="otp">
+              <div *ngIf="submitted && isValid.otp.errors" class="invalid-feedback">
+                <div *ngIf="isValid.otp.errors.required">OTP is required</div>
+                <div *ngIf="isValid.otp.errors.minlength">OTP must be at least 6 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [ngClass]="{ 'is-invalid': submitted && isValid.termsAndConditions.errors }"
+                  formControlName="termsAndConditions" value="" id="invalidCheck" required>
+                <label class="form-check-label text-muted" for="invalidCheck">Agree to terms and conditions</label>
+                <a href="#" class="d-lg-none ml-2" data-toggle="modal" data-target="#myModal">Read</a>
+                <div *ngIf="submitted && isValid.termsAndConditions.errors" class="invalid-feedback">
+                  <div *ngIf="isValid.termsAndConditions.errors.required">Please Accept Terms & Conditions</div>
+                </div>
+                <div class="modal" id="myModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <app-terms-conditions></app-terms-conditions>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-block btn-danger">Register</button>
+          </form>
+          <div class="text-center p-1">
+            <a href="login">Go to Sign In Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
